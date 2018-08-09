@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Weather forecast</string>
+
+    <string-array name="towns">
+        <item>Санкт-Петербург</item>
+        <item>Анапа</item>
+        <item>Архангельск</item>
+        <item>Воркута</item>
+        </string-array>
+
+    <string-array name="weather_forecast">
+        <item>Температура +25 гр., пасмурно</item>
+        <item>Температура +40 гр., солнечно</item>
+        <item>Температура +10 гр., облачно</item>
+        <item>Температура 0 гр., туманно</item>
+    </string-array>
+
+</resources>
