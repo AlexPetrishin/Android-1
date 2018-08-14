@@ -1,5 +1,6 @@
 package com.geekbrains.lesson1.coloreffect1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,20 +19,25 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        textView_weather_forecast = (TextView) findViewById(R.id.textView_weather_forecast);
-
-        spinner = (Spinner) findViewById(R.id.spinner);
+        initViews();
 
         Button button = (Button) findViewById(R.id.button_weather);
         button.setOnClickListener(onClickListener);
     }
 
-    private final View.OnClickListener onClickListener = new View.OnClickListener() {
+    private void initViews() {
+        textView_weather_forecast = (TextView) findViewById(R.id.textView_weather_forecast);
+        spinner = (Spinner) findViewById(R.id.spinner);
+    }
+
+    private View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             String weather_forecast = Weather_forecast.getWeather_forecast(MainActivity.this,
                     (int) spinner.getSelectedItemId());
-            textView_weather_forecast.setText(weather_forecast);
+            Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+            intent.putExtra(Main2Activity.EXTRA_MESSAGE,weather_forecast);
+            startActivity(intent);
         }
     };
 }
